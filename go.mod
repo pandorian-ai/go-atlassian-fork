@@ -1,5 +1,4 @@
-module github.com/pandorian-ai/go-atlassian-fork
-
+module github.com/pandorian-ai/go-atlassian-fork/v2
 
 go 1.21
 

@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"sync"
 
-	jira "github.com/ctreminiom/go-atlassian/v2/jira/v3"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	jira "github.com/pandorian-ai/go-atlassian-fork/v2/jira/v3"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // Example1BasicAutoRenewal demonstrates the simplest way to use OAuth 2.0 with automatic token renewal

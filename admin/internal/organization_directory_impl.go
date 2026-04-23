@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/http"
 
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/v2/service"
-	"github.com/ctreminiom/go-atlassian/v2/service/admin"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/admin"
 )
 
 // NewOrganizationDirectoryService creates a new instance of OrganizationDirectoryService.

@@ -3,7 +3,7 @@ package jira
 import (
 	"context"
 
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
 )
 
 //FieldContextOptionConnector
@@ -70,7 +70,7 @@ type FieldContextConnector interface {
 	//
 	// GET /rest/api/{2-3}/field/{fieldID}/context/issuetypemapping
 	//
-	// Docs: TODO: The documentation needs to be created, raise a ticket here: https://github.com/ctreminiom/go-atlassian/issues
+	// Docs: TODO: The documentation needs to be created, raise a ticket here: https://github.com/pandorian-ai/go-atlassian-fork/issues
 	IssueTypesContext(ctx context.Context, fieldID string, contextIDs []int, startAt, maxResults int) (*model.IssueTypeToContextMappingPageScheme,
 		*model.ResponseScheme, error)
 
@@ -82,7 +82,7 @@ type FieldContextConnector interface {
 	//
 	// GET /rest/api/{2-3}/field/{fieldID}/context/projectmapping
 	//
-	// Docs: TODO: The documentation needs to be created, raise a ticket here: https://github.com/ctreminiom/go-atlassian/issues
+	// Docs: TODO: The documentation needs to be created, raise a ticket here: https://github.com/pandorian-ai/go-atlassian-fork/issues
 	ProjectsContext(ctx context.Context, fieldID string, contextIDs []int, startAt, maxResults int) (*model.CustomFieldContextProjectMappingPageScheme,
 		*model.ResponseScheme, error)
 

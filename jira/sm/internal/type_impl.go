@@ -11,7 +11,7 @@ import (
 /pkg/infra/models"
 	"github.com/pandorian-ai/go-atlassian-fork
 /service"
-	"github.com/ctreminiom/go-atlassian/v2/service/sm"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/sm"
 )
 
 // NewTypeService creates a new instance of TypeService.

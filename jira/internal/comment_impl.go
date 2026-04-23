@@ -2,8 +2,8 @@ package internal
 
 import (
 	"fmt"
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/v2/service"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
 )
 
 // NewCommentService creates a new instance of CommentADFService and CommentRichTextService.

@@ -13,8 +13,8 @@ import (
 	"sync"
 	"time"
 
-	jira "github.com/ctreminiom/go-atlassian/v2/jira/v3"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	jira "github.com/pandorian-ai/go-atlassian-fork/v2/jira/v3"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // OAuthServer handles the OAuth 2.0 flow with HTTP callbacks

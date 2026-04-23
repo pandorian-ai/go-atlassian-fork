@@ -3,7 +3,7 @@ package assets
 import (
 	"context"
 
-	"github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
 )
 
 // AQLAssetConnector represents the assets AQL search endpoints.

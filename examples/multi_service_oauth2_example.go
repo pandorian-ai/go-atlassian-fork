@@ -6,11 +6,11 @@ import (
 	"log"
 	"net/http"
 
-	admin "github.com/ctreminiom/go-atlassian/v2/admin"
-	confluence "github.com/ctreminiom/go-atlassian/v2/confluence/v2"
-	jirav2 "github.com/ctreminiom/go-atlassian/v2/jira/v2"
-	jirav3 "github.com/ctreminiom/go-atlassian/v2/jira/v3"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	admin "github.com/pandorian-ai/go-atlassian-fork/v2/admin"
+	confluence "github.com/pandorian-ai/go-atlassian-fork/v2/confluence/v2"
+	jirav2 "github.com/pandorian-ai/go-atlassian-fork/v2/jira/v2"
+	jirav3 "github.com/pandorian-ai/go-atlassian-fork/v2/jira/v3"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // ExampleMultiServiceOAuth demonstrates using OAuth 2.0 across multiple Atlassian services

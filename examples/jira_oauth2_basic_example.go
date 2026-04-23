@@ -14,8 +14,8 @@ import (
 	"log"
 	"net/http"
 
-	jira "github.com/ctreminiom/go-atlassian/v2/jira/v3"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	jira "github.com/pandorian-ai/go-atlassian-fork/v2/jira/v3"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // ExampleOAuth2Flow demonstrates the complete OAuth 2.0 authentication flow

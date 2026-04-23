@@ -9,10 +9,10 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/ctreminiom/go-atlassian/v2/admin/internal"
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/v2/pkg/infra/oauth2"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/admin/internal"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/oauth2"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 const defaultAPIEndpoint = "https://api.atlassian.com/"

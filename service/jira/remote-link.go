@@ -3,7 +3,7 @@ package jira
 import (
 	"context"
 
-	"github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
 )
 
 // RemoteLinkConnector is the interface that wraps the Jira remote link methods.

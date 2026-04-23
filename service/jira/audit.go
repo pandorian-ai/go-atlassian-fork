@@ -2,7 +2,7 @@ package jira
 
 import (
 	"context"
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
 )
 
 // AuditRecordConnector  audits that record activities undertaken in Jira.

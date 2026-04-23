@@ -10,10 +10,10 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/ctreminiom/go-atlassian/v2/confluence/internal"
-	"github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/v2/pkg/infra/oauth2"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/confluence/internal"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/oauth2"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // ClientOption is a function that configures a Client

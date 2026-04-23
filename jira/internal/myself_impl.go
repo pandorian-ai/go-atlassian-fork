@@ -7,9 +7,9 @@ import (
 	"net/url"
 	"strings"
 
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/v2/service"
-	"github.com/ctreminiom/go-atlassian/v2/service/jira"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/jira"
 )
 
 // NewMySelfService creates a new instance of MySelfService.

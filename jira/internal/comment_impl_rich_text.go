@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"strings"
 
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/v2/service"
-	"github.com/ctreminiom/go-atlassian/v2/service/jira"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/jira"
 )
 
 // CommentRichTextService provides methods to interact with comment operations in Jira Service Management using Rich Text format.
@@ -41,7 +41,7 @@ func (c *CommentRichTextService) Gets(ctx context.Context, issueKeyOrID, orderBy
 //
 // GET /rest/api/{2-3}/issue/{issueKeyOrID}/comment/{commentID}
 //
-// TODO: The documentation needs to be created, raise a ticket here: https://github.com/ctreminiom/go-atlassian/issues
+// TODO: The documentation needs to be created, raise a ticket here: https://github.com/pandorian-ai/go-atlassian-fork/issues
 func (c *CommentRichTextService) Get(ctx context.Context, issueKeyOrID, commentID string) (*model.IssueCommentSchemeV2, *model.ResponseScheme, error) {
 	return c.internalClient.Get(ctx, issueKeyOrID, commentID)
 }

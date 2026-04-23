@@ -5,7 +5,7 @@ import (
 
 	"github.com/tidwall/gjson"
 
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
 )
 
 type MetadataConnector interface {

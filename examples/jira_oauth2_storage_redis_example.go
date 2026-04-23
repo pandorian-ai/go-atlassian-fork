@@ -11,9 +11,9 @@ import (
 	"time"
 
 	"github.com/redis/go-redis/v9"
-	jira "github.com/ctreminiom/go-atlassian/v2/jira/v3"
-	"github.com/ctreminiom/go-atlassian/v2/pkg/infra/oauth2"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	jira "github.com/pandorian-ai/go-atlassian-fork/v2/jira/v3"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/oauth2"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // RedisTokenStore implements oauth2.TokenStore using Redis

@@ -3,7 +3,7 @@ package bitbucket
 import (
 	"context"
 
-	"github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
 )
 
 // WorkspaceConnector is where you create repositories, collaborate on your code,
