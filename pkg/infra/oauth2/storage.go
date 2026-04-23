@@ -3,8 +3,7 @@ package oauth2
 import (
 	"context"
 
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // TokenStore provides an interface for persistent storage of OAuth2 tokens.

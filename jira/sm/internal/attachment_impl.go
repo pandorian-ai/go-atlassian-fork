@@ -7,8 +7,7 @@ import (
 	"net/url"
 	"strconv"
 
-	model "github.com/pandorian-ai/go-atlassian-fork
-/pkg/infra/models"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
 	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
 	"github.com/pandorian-ai/go-atlassian-fork/v2/service/sm"
 )

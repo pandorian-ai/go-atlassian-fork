@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

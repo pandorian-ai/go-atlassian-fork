@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
@@ -67,12 +67,12 @@ func (m *MockOAuth2Service) GetAccessibleResources(ctx context.Context, accessTo
 
 func TestReuseTokenSource_Token(t *testing.T) {
 	tests := []struct {
-		name           string
-		initialToken   *common.OAuth2Token
-		mockSetup      func(*MockTokenSource)
-		expectedCalls  int
-		waitDuration   time.Duration
-		wantErr        bool
+		name          string
+		initialToken  *common.OAuth2Token
+		mockSetup     func(*MockTokenSource)
+		expectedCalls int
+		waitDuration  time.Duration
+		wantErr       bool
 	}{
 		{
 			name: "returns cached token when still valid",
@@ -86,8 +86,8 @@ func TestReuseTokenSource_Token(t *testing.T) {
 				// Should not be called since token is still valid
 			},
 			expectedCalls: 0,
-			waitDuration: 0,
-			wantErr:      false,
+			waitDuration:  0,
+			wantErr:       false,
 		},
 		{
 			name: "refreshes token when expired",
@@ -107,8 +107,8 @@ func TestReuseTokenSource_Token(t *testing.T) {
 				m.On("Token").Return(newToken, nil).Once()
 			},
 			expectedCalls: 1,
-			waitDuration: 2 * time.Second,
-			wantErr:      false,
+			waitDuration:  2 * time.Second,
+			wantErr:       false,
 		},
 		{
 			name: "returns error when refresh fails",
@@ -122,8 +122,8 @@ func TestReuseTokenSource_Token(t *testing.T) {
 				m.On("Token").Return(nil, fmt.Errorf("refresh failed")).Once()
 			},
 			expectedCalls: 1,
-			waitDuration: 2 * time.Second,
-			wantErr:      true,
+			waitDuration:  2 * time.Second,
+			wantErr:       true,
 		},
 	}
 

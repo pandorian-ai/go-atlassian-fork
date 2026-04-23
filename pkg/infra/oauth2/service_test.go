@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
@@ -171,12 +171,12 @@ func TestService_GetAuthorizationURL(t *testing.T) {
 
 func TestService_ExchangeAuthorizationCode(t *testing.T) {
 	tests := []struct {
-		name           string
-		code           string
-		mockResponse   *http.Response
-		mockError      error
-		expectedToken  *common.OAuth2Token
-		expectedError  bool
+		name          string
+		code          string
+		mockResponse  *http.Response
+		mockError     error
+		expectedToken *common.OAuth2Token
+		expectedError bool
 	}{
 		{
 			name: "successful token exchange",

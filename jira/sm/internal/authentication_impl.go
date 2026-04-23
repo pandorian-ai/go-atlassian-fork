@@ -1,10 +1,8 @@
 package internal
 
 import (
-	"github.com/pandorian-ai/go-atlassian-fork
-/service"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // NewAuthenticationService creates a new instance of AuthenticationService.

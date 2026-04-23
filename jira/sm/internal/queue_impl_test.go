@@ -4,12 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	model "github.com/pandorian-ai/go-atlassian-fork
-/pkg/infra/models"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/mocks"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/mocks"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/url"

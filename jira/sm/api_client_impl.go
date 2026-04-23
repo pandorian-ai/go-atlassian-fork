@@ -10,14 +10,10 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/pandorian-ai/go-atlassian-fork
-/jira/sm/internal"
-	model "github.com/pandorian-ai/go-atlassian-fork
-/pkg/infra/models"
-	"github.com/pandorian-ai/go-atlassian-fork
-/pkg/infra/oauth2"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/jira/sm/internal"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/oauth2"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 const defaultServiceManagementVersion = "latest"

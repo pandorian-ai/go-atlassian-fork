@@ -10,12 +10,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	model "github.com/pandorian-ai/go-atlassian-fork
-/pkg/infra/models"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/mocks"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/mocks"
 )
 
 func Test_internalKnowledgebaseImpl_Search(t *testing.T) {

@@ -10,12 +10,9 @@ import (
 
 	"github.com/google/go-querystring/query"
 
-	model "github.com/pandorian-ai/go-atlassian-fork
-/pkg/infra/models"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/sm"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/sm"
 )
 
 // NewCommentService creates a new instance of CommentService.

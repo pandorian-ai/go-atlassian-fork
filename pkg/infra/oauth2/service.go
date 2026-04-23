@@ -9,8 +9,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 const (
@@ -29,8 +28,8 @@ const (
 
 // Service implements OAuth 2.0 authentication for Atlassian
 type Service struct {
-	httpClient   common.HTTPClient
-	config       *common.OAuth2Config
+	httpClient common.HTTPClient
+	config     *common.OAuth2Config
 }
 
 // NewOAuth2Service creates a new OAuth 2.0 service

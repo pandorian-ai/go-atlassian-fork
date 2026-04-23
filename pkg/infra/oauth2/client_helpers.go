@@ -5,8 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
 )
 
 // SetupTokenSourcesWithStorage creates token sources with optional storage support.

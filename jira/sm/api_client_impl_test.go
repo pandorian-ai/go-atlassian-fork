@@ -13,14 +13,11 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/pandorian-ai/go-atlassian-fork
-/jira/sm/internal"
-	model "github.com/pandorian-ai/go-atlassian-fork
-/pkg/infra/models"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/common"
-	"github.com/pandorian-ai/go-atlassian-fork
-/service/mocks"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/jira/sm/internal"
+	model "github.com/pandorian-ai/go-atlassian-fork/v2/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/common"
+
+	"github.com/pandorian-ai/go-atlassian-fork/v2/service/mocks"
 )
 
 func TestClient_Call(t *testing.T) {
