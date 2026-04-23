@@ -10,10 +10,14 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/ctreminiom/go-atlassian/v2/jira/sm/internal"
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/v2/pkg/infra/oauth2"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork
+/jira/sm/internal"
+	model "github.com/pandorian-ai/go-atlassian-fork
+/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork
+/pkg/infra/oauth2"
+	"github.com/pandorian-ai/go-atlassian-fork
+/service/common"
 )
 
 const defaultServiceManagementVersion = "latest"
@@ -27,12 +31,12 @@ func WithOAuth(config *common.OAuth2Config) ClientOption {
 		if config == nil {
 			return fmt.Errorf("oauth config cannot be nil")
 		}
-		
+
 		oauthService, err := oauth2.NewOAuth2Service(c.HTTP, config)
 		if err != nil {
 			return fmt.Errorf("failed to create OAuth service: %w", err)
 		}
-		
+
 		c.OAuth = oauthService
 		return nil
 	}
@@ -45,11 +49,11 @@ func WithAutoRenewalToken(token *common.OAuth2Token) ClientOption {
 		if token == nil {
 			return fmt.Errorf("token cannot be nil for auto-renewal")
 		}
-		
+
 		if c.OAuth == nil {
 			return fmt.Errorf("OAuth must be configured before enabling auto-renewal (use WithOAuth first)")
 		}
-		
+
 		// Create token sources with storage support if configured
 		_, reuseSource, err := oauth2.SetupTokenSourcesWithStorage(
 			context.Background(),
@@ -69,10 +73,10 @@ func WithAutoRenewalToken(token *common.OAuth2Token) ClientOption {
 
 		// Create OAuth transport
 		c.HTTP = oauth2.CreateOAuthTransport(reuseSource, base, c.Auth)
-		
+
 		// Set initial token
 		c.Auth.SetBearerToken(token.AccessToken)
-		
+
 		return nil
 	}
 }
@@ -85,7 +89,7 @@ func WithOAuthWithAutoRenewal(config *common.OAuth2Config, token *common.OAuth2T
 		if err := WithOAuth(config)(c); err != nil {
 			return err
 		}
-		
+
 		// Then enable auto-renewal
 		return WithAutoRenewalToken(token)(c)
 	}
@@ -97,7 +101,7 @@ func WithTokenStore(store oauth2.TokenStore) ClientOption {
 		if store == nil {
 			return fmt.Errorf("token store cannot be nil")
 		}
-		
+
 		c.HTTP = oauth2.WrapHTTPClient(c.HTTP).WithStore(store)
 		return nil
 	}
@@ -109,7 +113,7 @@ func WithTokenCallback(callback oauth2.TokenCallback) ClientOption {
 		if callback == nil {
 			return fmt.Errorf("token callback cannot be nil")
 		}
-		
+
 		c.HTTP = oauth2.WrapHTTPClient(c.HTTP).WithCallback(callback)
 		return nil
 	}

@@ -8,7 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork
+/service/common"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
@@ -128,7 +129,7 @@ func TestService_GetAuthorizationURL(t *testing.T) {
 			verify: func(t *testing.T, u *url.URL) {
 				assert.Equal(t, "auth.atlassian.com", u.Host)
 				assert.Equal(t, "/authorize", u.Path)
-				
+
 				q := u.Query()
 				assert.Equal(t, "api.atlassian.com", q.Get("audience"))
 				assert.Equal(t, "test-client-id", q.Get("client_id"))
@@ -235,7 +236,7 @@ func TestService_ExchangeAuthorizationCode(t *testing.T) {
 			})).Return(tt.mockResponse, tt.mockError)
 
 			token, err := service.ExchangeAuthorizationCode(context.Background(), tt.code)
-			
+
 			if tt.expectedError {
 				assert.Error(t, err)
 				assert.Nil(t, token)
@@ -326,7 +327,7 @@ func TestService_GetAccessibleResources(t *testing.T) {
 			})).Return(tt.mockResponse, tt.mockError)
 
 			resources, err := service.GetAccessibleResources(context.Background(), tt.accessToken)
-			
+
 			if tt.expectedError {
 				assert.Error(t, err)
 				assert.Nil(t, resources)

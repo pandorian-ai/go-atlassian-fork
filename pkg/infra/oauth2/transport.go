@@ -7,7 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork
+/service/common"
 )
 
 // TokenSource provides OAuth2 tokens
@@ -74,7 +75,7 @@ func (s *ReuseTokenSource) Token() (*common.OAuth2Token, error) {
 
 	s.token = token
 	s.expiryTime = time.Now().Add(time.Duration(token.ExpiresIn) * time.Second)
-	
+
 	// Store token if external storage is configured
 	// This is done asynchronously for performance since this method is called
 	// frequently and access tokens can be regenerated if storage fails
@@ -85,7 +86,7 @@ func (s *ReuseTokenSource) Token() (*common.OAuth2Token, error) {
 			_ = s.store.SetToken(context.Background(), token)
 		}()
 	}
-	
+
 	return token, nil
 }
 
@@ -117,14 +118,14 @@ func NewRefreshTokenSourceWithStorage(ctx context.Context, refreshToken string, 
 		store:        store,
 		callback:     callback,
 	}
-	
+
 	// If store is provided, try to load refresh token from storage
 	if store != nil {
 		if storedRefreshToken, err := store.GetRefreshToken(ctx); err == nil && storedRefreshToken != "" {
 			source.refreshToken = storedRefreshToken
 		}
 	}
-	
+
 	return source
 }
 
@@ -147,7 +148,7 @@ func (s *RefreshTokenSource) Token() (*common.OAuth2Token, error) {
 	// Update refresh token if a new one was provided
 	if token.RefreshToken != "" {
 		s.refreshToken = token.RefreshToken
-		
+
 		// Store new refresh token if external storage is configured
 		// This is done synchronously because refresh tokens are critical - if we fail
 		// to store a new refresh token, we could lose the ability to refresh tokens

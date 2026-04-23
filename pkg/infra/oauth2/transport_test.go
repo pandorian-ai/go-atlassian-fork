@@ -9,7 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork
+/service/common"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
@@ -279,7 +280,7 @@ func TestTransport_RoundTrip(t *testing.T) {
 func TestRefreshTokenSource_UpdatesRefreshToken(t *testing.T) {
 	mockOAuth := new(MockOAuth2Service)
 	ctx := context.Background()
-	
+
 	// First refresh returns a new refresh token
 	firstResponse := &common.OAuth2Token{
 		AccessToken:  "first-access-token",
@@ -287,7 +288,7 @@ func TestRefreshTokenSource_UpdatesRefreshToken(t *testing.T) {
 		ExpiresIn:    3600,
 	}
 	mockOAuth.On("RefreshAccessToken", ctx, "old-refresh-token").Return(firstResponse, nil).Once()
-	
+
 	// Second refresh should use the new refresh token
 	secondResponse := &common.OAuth2Token{
 		AccessToken:  "second-access-token",
@@ -295,18 +296,18 @@ func TestRefreshTokenSource_UpdatesRefreshToken(t *testing.T) {
 		ExpiresIn:    3600,
 	}
 	mockOAuth.On("RefreshAccessToken", ctx, "new-refresh-token").Return(secondResponse, nil).Once()
-	
+
 	source := NewRefreshTokenSource(ctx, "old-refresh-token", mockOAuth)
-	
+
 	// First token request
 	token1, err := source.Token()
 	assert.NoError(t, err)
 	assert.Equal(t, "first-access-token", token1.AccessToken)
-	
+
 	// Second token request should use updated refresh token
 	token2, err := source.Token()
 	assert.NoError(t, err)
 	assert.Equal(t, "second-access-token", token2.AccessToken)
-	
+
 	mockOAuth.AssertExpectations(t)
 }

@@ -3,7 +3,8 @@ package oauth2
 import (
 	"net/http"
 
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork
+/service/common"
 )
 
 // HTTPWrapper wraps an HTTP client with token storage configuration.

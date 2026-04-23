@@ -13,10 +13,14 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ctreminiom/go-atlassian/v2/jira/sm/internal"
-	model "github.com/ctreminiom/go-atlassian/v2/pkg/infra/models"
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
-	"github.com/ctreminiom/go-atlassian/v2/service/mocks"
+	"github.com/pandorian-ai/go-atlassian-fork
+/jira/sm/internal"
+	model "github.com/pandorian-ai/go-atlassian-fork
+/pkg/infra/models"
+	"github.com/pandorian-ai/go-atlassian-fork
+/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork
+/service/mocks"
 )
 
 func TestClient_Call(t *testing.T) {

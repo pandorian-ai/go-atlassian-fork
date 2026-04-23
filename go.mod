@@ -1,4 +1,5 @@
-module github.com/ctreminiom/go-atlassian/v2
+module github.com/pandorian-ai/go-atlassian-fork
+
 
 go 1.21
 

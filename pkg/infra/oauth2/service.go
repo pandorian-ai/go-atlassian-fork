@@ -9,19 +9,20 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/ctreminiom/go-atlassian/v2/service/common"
+	"github.com/pandorian-ai/go-atlassian-fork
+/service/common"
 )
 
 const (
 	// AuthorizationURL is the OAuth 2.0 authorization endpoint
 	AuthorizationURL = "https://auth.atlassian.com/authorize"
-	
+
 	// TokenURL is the OAuth 2.0 token endpoint
 	TokenURL = "https://auth.atlassian.com/oauth/token"
-	
+
 	// ResourcesURL is the endpoint to get accessible resources
 	ResourcesURL = "https://api.atlassian.com/oauth/token/accessible-resources"
-	
+
 	// Audience for Atlassian APIs
 	Audience = "api.atlassian.com"
 )
@@ -37,11 +38,11 @@ func NewOAuth2Service(httpClient common.HTTPClient, config *common.OAuth2Config)
 	if httpClient == nil {
 		httpClient = http.DefaultClient
 	}
-	
+
 	if config == nil || config.ClientID == "" || config.ClientSecret == "" || config.RedirectURI == "" {
 		return nil, fmt.Errorf("oauth2: valid OAuth2Config with ClientID, ClientSecret and RedirectURI is required")
 	}
-	
+
 	return &Service{
 		httpClient: httpClient,
 		config:     config,
@@ -54,10 +55,10 @@ func (s *Service) GetAuthorizationURL(scopes []string, state string) (*url.URL, 
 	if err != nil {
 		return nil, fmt.Errorf("oauth2: failed to parse authorization URL: %w", err)
 	}
-	
+
 	// Add offline_access scope to get refresh token
 	scopesWithOffline := append(scopes, "offline_access")
-	
+
 	q := u.Query()
 	q.Set("audience", Audience)
 	q.Set("client_id", s.config.ClientID)
@@ -67,7 +68,7 @@ func (s *Service) GetAuthorizationURL(scopes []string, state string) (*url.URL, 
 	q.Set("response_type", "code")
 	q.Set("prompt", "consent")
 	u.RawQuery = q.Encode()
-	
+
 	return u, nil
 }
 
@@ -79,7 +80,7 @@ func (s *Service) ExchangeAuthorizationCode(ctx context.Context, code string) (*
 	data.Set("client_secret", s.config.ClientSecret)
 	data.Set("code", code)
 	data.Set("redirect_uri", s.config.RedirectURI)
-	
+
 	return s.requestToken(ctx, data)
 }
 
@@ -90,7 +91,7 @@ func (s *Service) RefreshAccessToken(ctx context.Context, refreshToken string) (
 	data.Set("client_id", s.config.ClientID)
 	data.Set("client_secret", s.config.ClientSecret)
 	data.Set("refresh_token", refreshToken)
-	
+
 	return s.requestToken(ctx, data)
 }
 
@@ -100,26 +101,26 @@ func (s *Service) GetAccessibleResources(ctx context.Context, accessToken string
 	if err != nil {
 		return nil, fmt.Errorf("oauth2: failed to create request: %w", err)
 	}
-	
+
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", accessToken))
 	req.Header.Set("Accept", "application/json")
-	
+
 	resp, err := s.httpClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("oauth2: failed to get accessible resources: %w", err)
 	}
 	defer resp.Body.Close()
-	
+
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
 		return nil, fmt.Errorf("oauth2: failed to get accessible resources, status: %d, body: %s", resp.StatusCode, string(body))
 	}
-	
+
 	var resources []*common.AccessibleResource
 	if err := json.NewDecoder(resp.Body).Decode(&resources); err != nil {
 		return nil, fmt.Errorf("oauth2: failed to decode accessible resources: %w", err)
 	}
-	
+
 	return resources, nil
 }
 
@@ -129,21 +130,21 @@ func (s *Service) requestToken(ctx context.Context, data url.Values) (*common.OA
 	if err != nil {
 		return nil, fmt.Errorf("oauth2: failed to create token request: %w", err)
 	}
-	
+
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Set("Accept", "application/json")
-	
+
 	resp, err := s.httpClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("oauth2: failed to request token: %w", err)
 	}
 	defer resp.Body.Close()
-	
+
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, fmt.Errorf("oauth2: failed to read response body: %w", err)
 	}
-	
+
 	if resp.StatusCode != http.StatusOK {
 		var errResp struct {
 			Error            string `json:"error"`
@@ -154,11 +155,11 @@ func (s *Service) requestToken(ctx context.Context, data url.Values) (*common.OA
 		}
 		return nil, fmt.Errorf("oauth2: token request failed with status %d: %s", resp.StatusCode, string(body))
 	}
-	
+
 	var token common.OAuth2Token
 	if err := json.Unmarshal(body, &token); err != nil {
 		return nil, fmt.Errorf("oauth2: failed to decode token response: %w", err)
 	}
-	
+
 	return &token, nil
 }
