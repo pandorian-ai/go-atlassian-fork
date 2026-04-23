@@ -54,7 +54,7 @@ type PageScheme struct {
 	Position   int                `json:"position,omitempty"`   // The position of the page.
 	Version    *PageVersionScheme `json:"version,omitempty"`    // The version of the page.
 	Body       *PageBodyScheme    `json:"body,omitempty"`
-	Links      *PageLinksScheme   `json:"_links,omitempty"`
+	Links      *PageLinksScheme   `json:"_links,omitempty"` // links
 }
 
 type PageLinksScheme struct {
