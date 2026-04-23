@@ -53,7 +53,8 @@ type PageScheme struct {
 	ParentType string             `json:"parentType,omitempty"` // The type of the parent of the page.
 	Position   int                `json:"position,omitempty"`   // The position of the page.
 	Version    *PageVersionScheme `json:"version,omitempty"`    // The version of the page.
-	Body       *PageBodyScheme    `json:"body,omitempty"`       // The body of the page.Links
+	Body       *PageBodyScheme    `json:"body,omitempty"`
+	Links      *PageLinksScheme   `json:"_links,omitempty"`
 }
 
 type PageLinksScheme struct {
