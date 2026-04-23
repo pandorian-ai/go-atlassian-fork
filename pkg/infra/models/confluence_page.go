@@ -53,7 +53,13 @@ type PageScheme struct {
 	ParentType string             `json:"parentType,omitempty"` // The type of the parent of the page.
 	Position   int                `json:"position,omitempty"`   // The position of the page.
 	Version    *PageVersionScheme `json:"version,omitempty"`    // The version of the page.
-	Body       *PageBodyScheme    `json:"body,omitempty"`       // The body of the page.
+	Body       *PageBodyScheme    `json:"body,omitempty"`       // The body of the page.Links
+}
+
+type PageLinksScheme struct {
+	WebUI  string `json:"webui,omitempty"`
+	EditUI string `json:"editui,omitempty"`
+	TinyUI string `json:"tinyui,omitempty"`
 }
 
 // PageVersionScheme represents the version of a page in Confluence.
