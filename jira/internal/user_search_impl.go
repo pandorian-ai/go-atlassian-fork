@@ -76,16 +76,16 @@ type internalUserSearchImpl struct {
 	version string
 }
 
-func (i *internalUserSearchImpl) Check(ctx context.Context, permissions string, options *model.UserPermissionCheckParamsScheme, startAt, maxResults int) ([]*model.UserScheme, *model.ResponseScheme, error) {
+func (i *internalUserSearchImpl) Check(ctx context.Context, permission string, options *model.UserPermissionCheckParamsScheme, startAt, maxResults int) ([]*model.UserScheme, *model.ResponseScheme, error) {
 
-	if permissions == "" {
+	if permission == "" {
 		return nil, nil, fmt.Errorf("jira: %w", model.ErrNoPermissionGrantID)
 	}
 
 	params := url.Values{}
 	params.Add("startAt", strconv.Itoa(startAt))
 	params.Add("maxResults", strconv.Itoa(maxResults))
-	params.Add("permissions", permissions)
+	params.Add("permission", permission)
 
 	if options != nil {
 
@@ -106,7 +106,7 @@ func (i *internalUserSearchImpl) Check(ctx context.Context, permissions string, 
 		}
 	}
 
-	endpoint := fmt.Sprintf("rest/api/%v/user/permissions/search?%v", i.version, params.Encode())
+	endpoint := fmt.Sprintf("rest/api/%v/user/permission/search?%v", i.version, params.Encode())
 
 	request, err := i.c.NewRequest(ctx, http.MethodGet, endpoint, "", nil)
 	if err != nil {
