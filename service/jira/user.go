@@ -102,4 +102,13 @@ type UserSearchConnector interface {
 	//
 	// https://docs.go-atlassian.io/jira-software-cloud/users/search#find-users-with-permissions
 	Check(ctx context.Context, permission string, options *model.UserPermissionCheckParamsScheme, startAt, maxResults int) ([]*model.UserScheme, *model.ResponseScheme, error)
+
+	// Assignable returns a list of users that can be assigned to an issue for a given project.
+	//
+	// The list may be restricted to users whose attributes match a query string.
+	//
+	// GET /rest/api/{2-3}/user/assignable/search
+	//
+	// https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-user-search/#api-rest-api-2-user-assignable-search-get
+	Assignable(ctx context.Context, query, project string, startAt, maxResults int) ([]*model.UserScheme, *model.ResponseScheme, error)
 }
